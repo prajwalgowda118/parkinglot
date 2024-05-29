@@ -10,15 +10,15 @@ public class ParkingSpot {
     private VehicleClass vehicle;
     private VehicleType type;
 
-    public ParkingSpot(int spotNumber, VehicleType type) {
+    public ParkingSpot(int spotNumber) {
         this.spotNumber = spotNumber;
         this.vehicle = null;
-        this.type = type;
+        this.type = VehicleType.CAR;
     }
 
-   /* public VehicleType getType() {
+    public VehicleType getType() {
         return type;
-    }*/
+    }
 
     public VehicleClass getVehicle() {
         return vehicle;
@@ -40,13 +40,26 @@ public class ParkingSpot {
             System.out.println("Vehicle is not parked , there is no slot available");
         }
     }
+
+    @Override
+    public String toString() {
+        return "ParkingSpot{" +
+                "spotNumber=" + spotNumber +
+                ", vehicle=" + vehicle +
+                ", type=" + type +
+                '}';
+    }
+
     public void unpark(){
 
         if(!isAvailable()){
             vehicle=null;
-        }else{
+        }
+        else
+        {
             System.out.println("thers is no car to unpark");
         }
 
     }
+
 }
